@@ -1,0 +1,995 @@
+/* ============================================
+   HALALLAB – STYLE.CSS
+   ============================================ */
+
+/* ---------- CSS Variables ---------- */
+:root {
+  --bg-cream: #FFF2E9;
+  --bg-white: #ffffff;
+  --bg-dark: #1a1a1a;
+  --color-text: #1a1a1a;
+  --color-muted: #6b7280;
+  --color-border: #e5e7eb;
+  --color-accent-pink: #f9a8c9;
+  --color-accent-green: #a3e4b7;
+  --color-accent-yellow: #fde68a;
+  --color-accent-blue: #bfdbfe;
+  --font-heading: 'Georgia', Georgia, serif;
+  --font-display: 'Georgia', Georgia, serif;
+  --font-logo: 'Ramabhadra', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --max-width: 1100px;
+  --radius: 12px;
+  --font-heading: 'Georgia', Georgia, serif;
+  --font-logo:    'Ramabhadra', sans-serif;
+  --font-body:    'Inter', sans-serif;
+}
+
+/* ---------- Reset & Base ---------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: var(--color-text);
+  background-color: var(--bg-white);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+/* ---------- Utility: Buttons ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: opacity 0.2s ease, background 0.2s ease;
+  border: none;
+  white-space: nowrap;
+}
+
+.btn--dark {
+  background: var(--bg-dark);
+  color: #fff;
+}
+
+.btn--dark:hover {
+  opacity: 0.85;
+}
+
+.btn--outline {
+  background: #0E1125;         /* Робимо фон кнопки темним/чорним, як на макеті */
+  color: #ffffff;              /* Текст кнопки робимо білим */
+  border: none;                /* Прибираємо непотрібну рамку */
+  padding: 12px 24px;
+  border-radius: 12px;         /* Акуратне закруглення, як у сусідніх кнопок */
+  font-size: 15px;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+/* Ефект при наведенні (кнопка стає трішки світлішою) */
+.btn--outline:hover {
+  background: #1e233d;
+}
+.btn--outline:hover {
+  background: var(--bg-dark);
+  color: #fff;
+}
+
+.btn--outline-sm {
+  background: transparent;
+  color: var(--bg-dark);
+  border: 1.5px solid var(--bg-dark);
+  padding: 8px 18px;
+  font-size: 13px;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  transition: background 0.2s, color 0.2s;
+}
+
+.btn--outline-sm:hover {
+  background: var(--bg-dark);
+  color: #fff;
+}
+
+.btn--outline-light {
+  background: #ffffff;
+  color: #0E1125;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 12px;         /* <--- Зменшили радіус. Тепер вона буде прямокутною з акуратними м'якими кутами */
+  font-size: 15px;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.btn--outline-light:hover {
+  background: #f3f4f6;
+}
+
+/* Ефект при наведенні курсору (кнопка буде трохи бліднути) */
+.btn--outline-light:hover {
+  background: #f3f4f6;
+}
+
+.btn--outline-light:hover {
+  background: rgba(255,255,255,0.15);
+}
+
+.btn--link-light {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 10px 4px;
+  border-bottom: 1px solid rgba(255,255,255,0.4);
+}
+ 
+ .btn--pink {
+  background-color: #FFEBDD !important; /* Твій точний колір з макета */
+  color: #0E1125 !important;            /* Темний колір тексту */
+}
+
+.btn--pink:hover {
+  background-color: #ffdcb8 !important; /* Трохи темніший відтінок при наведенні */
+}
+
+/* ---------- Image Placeholders ---------- */
+.img-placeholder {
+  background: #f0ece8;
+  border: 2px dashed #d1c9c0;
+  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #9e9187;
+  font-size: 13px;
+  font-family: var(--font-body);
+  text-align: center;
+  padding: 20px;
+}
+
+.img-placeholder--hero {
+  width: 420px;
+  height: 320px;
+  max-width: 100%;
+}
+
+.img-placeholder--testimonial {
+  width: 300px;
+  height: 320px;
+  border-radius: 12px;
+  flex-shrink: 0;
+}
+
+/* ---------- NAVBAR ---------- */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--bg-white);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.navbar__inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 32px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* <--- Замість gap: 40px ставимо це */
+}
+
+.navbar__logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-logo);
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--bg-dark);
+  flex-shrink: 0;
+}
+
+.logo-icon {
+  font-size: 18px;
+  color: var(--bg-dark);
+}
+
+.navbar__nav {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  margin: 0 auto; /* <--- Додайте цей рядок сюди */
+  /* Перевірте, щоб рядка "flex: 1;" тут НЕ було */
+}
+
+.navbar__nav a {
+  font-size: 16px;
+  color: var(--color-text);
+  font-weight: 500;
+  transition: opacity 0.2s;
+}
+
+.navbar__nav a:hover {
+  opacity: 0.6;
+}
+
+/* ---------- HERO ---------- */
+.hero {
+  background: var(--bg-cream);
+  padding: 72px 32px 64px;
+}
+
+.hero__inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 64px;
+}
+
+.hero__text {
+  flex: 1;
+  max-width: 520px;
+}
+
+.hero__text h1 {
+  font-family: var(--font-heading);
+  font-size: 75px;
+  font-weight: 400;
+  line-height: 80px;
+  margin-bottom: 18px;
+  color: var(--bg-dark);
+  letter-spacing: -4px;
+}
+
+.hero__text p {
+  font-size: 18px;
+  color: #000000BF;
+  margin-bottom: 30px;
+  max-width: 400px;
+  line-height: 28px;
+}
+
+.hero__buttons {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.hero__image {
+  flex-shrink: 0;
+}
+/* Новий контейнер для кнопок у правій частині Hero */
+.hero__image-nav {
+  display: flex;
+  gap: 16px;                   /* Відступ між двома круглими кнопками */
+  align-items: center;
+  justify-content: center;
+  flex: 1;                     /* Займає всю праву сторону, симетрично тексту */
+  min-height: 320px;           /* Рівняємо висоту по контенту лівої частини */
+}
+
+/* Стиль білих круглих кнопок */
+.nav-circle-btn {
+  width: 56px;                 /* Ідеальний розмір круга */
+  height: 56px;
+  border-radius: 50%;          /* Робимо кнопку повністю круглою */
+  background: #ffffff;         /* Біле тло */
+  border: 1px solid #e5e7eb;   /* Дуже тонка світла обводка, як на макеті */
+  color: #0E1125;              /* Темний колір для самої стрілочки */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* Легка м'яка тінь для об'єму */
+  transition: all 0.2s ease-in-out;
+}
+
+/* Ефекти при наведенні курсору */
+.nav-circle-btn:hover {
+  background: #f9fafb;         /* Тло стає ледь сіруватим */
+  transform: scale(1.05);      /* Кнопка плавно збільшується на 5% */
+}
+
+.nav-circle-btn:active {
+  transform: scale(0.98);      /* Ефект легкого продавлювання при кліку */
+}
+
+/* ---------- TRUSTED BY ---------- */
+.trusted {
+  background: var(--bg-cream); /* <--- Змінили з var(--bg-white) на кремовий фон */
+  padding: 36px 32px; /* залиште як є */
+  text-align: center; /* залиште як є */
+  border-bottom: 1px solid var(--color-border); /* залиште як є */
+}
+
+.trusted__label {
+  font-size: 13px;
+  color: var(--color-muted);
+  margin-bottom: 20px;
+  letter-spacing: 0.01em;
+}
+
+.trusted__logos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 36px;
+  flex-wrap: wrap;
+}
+
+.trusted__logo {
+  font-size: 14px;
+  font-weight: 500;
+  color: #374151;
+  letter-spacing: 0.02em;
+  font-family: var(--font-body);
+}
+
+.trusted__logo--box {
+  border: 1.5px solid #374151;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.trusted__logo--bold {
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  font-family: var(--font-heading);
+}
+
+/* ---------- WHY HALALLAB ---------- */
+.why {
+  padding: 80px 32px;
+  background: var(--bg-white);
+}
+
+.why__inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  text-align: center;
+}
+
+.why__inner h2 {
+  font-family: var(--font-heading);
+  font-size: 48px;
+  font-weight: 400;
+  margin-bottom: 52px;
+  color: var(--bg-dark);
+  letter-spacing: -2.4px;
+}
+
+.why__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 48px;
+}
+
+.why__card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 14px;
+}
+
+.why__icon {
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.why__card h3 {
+  font-family: var(--font-heading);
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--bg-dark);
+}
+
+.why__card p {
+  font-size: 18px;
+  color: var(--color-muted);
+  line-height: 28px;
+  max-width: 240px;
+}
+
+/* ---------- PLATFORM SECTION ---------- */
+.platform {
+  background: var(--bg-white);
+  padding: 80px 32px;
+}
+
+.platform__inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.platform__header {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.platform__header h2 {
+  font-family: var(--font-heading);
+  font-size: 48px;
+  font-weight: 400;
+  line-height: 52px;
+  max-width: 700px;
+  margin: 0 auto 16px;
+  color: var(--bg-dark);
+  letter-spacing: -2.4px;
+}
+
+.platform__header p {
+  font-size: 17.66px;
+  color: var(--color-muted);
+  max-width: 460px;
+  margin: 0 auto;
+}
+
+.platform__content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 48px;
+}
+
+/* Нове адаптивне зображення для графіка */
+.platform__dashboard {
+  flex: 0 0 54%;
+  max-width: 695px;
+}
+
+.platform-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.02);
+}
+ 
+ /* Робимо стрілочку всередині цієї кнопки білою */
+a.testimonial__link span, 
+a.testimonial__link svg path {
+  color: #ffffff !important;
+  fill: #ffffff !important;
+}
+a.testimonial__link {
+  background: #0E1125 !important; /* <--- ТЕПЕР ВОНА БУДЕ ЧОРНОЮ (ТЕМНОЮ) */
+  color: #ffffff !important;
+  border: none !important;
+  display: inline-flex !important;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px !important;
+  border-radius: 12px !important;
+  text-decoration: none !important;
+  font-weight: 500;
+}
+/* ==================================================
+   ФІНАЛЬНІ СТИЛІ ДЛЯ КАРТОК ПЛАТФОРМИ ЗА Figma
+   ================================================== */
+
+.platform__features {
+  flex: 0.8;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+
+/* Базова (НЕАКТИВНА) картка */
+.feature-item {
+  background: transparent;
+  border-radius: 16px !important;
+  padding: 24px !important;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  position: relative !important; /* Для правильного позиціонування верхньої смужки */
+  border: 1px solid #E5E7EB !important; /* Сіра рамка з властивостей Figma */
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: none !important;
+}
+
+.feature-item__text {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Звичайний (НЕАКТИВНИЙ) заголовок */
+.feature-item h3 {
+  font-family: 'Georgia', Georgia, serif !important;
+  font-size: 16px !important;            /* Розмір з макета */
+  font-weight: 400 !important;            /* Тонкий (Regular) */
+  color: #000000 !important;              /* Сірий колір із панелі властивостей */
+  line-height: 28px !important;
+  letter-spacing: -0.24px !important;     /* Точне значення Letter Spacing */
+  margin: 0;
+}
+
+/* Приховуємо опис у неактивній картці */
+.feature-item p {
+  display: none !important;
+}
+
+/* Неактивне коло з цифрою */
+.feature-item__number {
+  width: 36px !important;
+  height: 36px !important;
+  border-radius: 50% !important;
+  border: 1px solid #4B5563 !important;   /* Сіра рамка для цифри */
+  color: #4B5563 !important;              /* Сіра цифра */
+  font-family: 'Inter', sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: transparent !important;
+}
+
+
+/* ---------- СТАН АКТИВНОЇ КАРТКИ ---------- */
+
+/* Сама активна картка */
+.feature-item--active {
+  background: #ffffff !important;         /* Чистий білий фон */
+  border-color: transparent !important;   /* Ховаємо базову рамку */
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.05) !important; /* Тінь Effects з Figma */
+}
+
+/* Рожева смужка строго зверху активної картки */
+.feature-item--active::before {
+  content: "" !important;
+  position: absolute !important;
+  left: 0 !important;
+  right: 0 !important;
+  top: 0 !important;
+  height: 4px !important;                 /* Товщина смужки з макета */
+  width: 100% !important;
+  background-color: #F9A8C9 !important;   /* Точний рожевий колір */
+  border-radius: 16px 16px 0 0 !important;
+}
+
+/* Заголовок в АКТИВНІЙ картці */
+.feature-item--active h3 {
+  font-family: 'Georgia', Georgia, serif !important;
+  color: #000000 !important;              /* Темний глибокий колір */
+  font-weight: 400 !important;            /* Жирний (Bold) */
+  letter-spacing: -0.24px !important;
+}
+
+/* Опис під заголовком (показується тільки в активній) */
+.feature-item--active p {
+  display: block !important;
+  font-family: 'Inter', sans-serif !important;
+  color: #4B5563 !important;              /* Колір тексту з правої панелі */
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  line-height: 22px !important;           /* Line height 20px з Figma */
+  letter-spacing: 0% !important;     /* Letter spacing -0.14px з Figma */
+  margin: 0;
+  padding-top: 4px;
+}
+
+/* Блакитне коло активної цифри */
+.feature-item--active .feature-item__number {
+  background-color: #BFDBFE !important;   /* Блакитний фон кола з макета */
+  color: #000000 !important;              /* Темна цифра всередині */
+  border-color: transparent !important;   /* Прибираємо рамку */
+}
+
+
+/* ---------- TESTIMONIAL ---------- */
+.testimonial {
+  background: var(--bg-white);
+  padding: 80px 32px 40px;
+  width: 100%;
+}
+
+/* Головний контейнер для фото та тексту */
+.testimonial__inner {
+  max-width: 960px;          /* Обмежуємо ширину, щоб блок став компактним */
+  margin: 0 auto;            /* Центруємо всю картку по центру екрана */
+  display: flex;
+  align-items: center;       /* Вирівнюємо фото і текст по вертикалі */
+  justify-content: space-between;
+  gap: 64px;                 /* Відстань між контентом і фото */
+}
+
+/* Блок з текстом ліворуч */
+.testimonial__text {
+  flex: 1;
+  max-width: 500px;          /* Примусово робимо текст компактнішим в ширину, щоб він красиво переносився */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;   /* Щоб кнопка "View case study" не розтягувалася */
+}
+
+.testimonial__text blockquote {
+  font-size: 40px;
+  font-family: var(--font-heading);
+  font-weight: 400;
+  line-height: 47px;
+  color: var(--bg-dark);
+  margin: 0 0 24px 0;        /* Відступ знизу до автора */
+  letter-spacing: -2px;
+}
+
+/* Автор відгуку */
+.testimonial__author {
+  margin-bottom: 24px;       /* Відступ до кнопки */
+}
+
+.testimonial__author strong {
+  display: block;
+  font-weight: 500;
+  font-size: 18px;
+  color: var(--bg-dark);
+}
+
+.testimonial__author span {
+  display: block;
+  font-size: 14px;
+  color: var(--color-muted);
+  margin-top: 4px;
+}
+
+/* Посилання-кнопка "View case study" */
+a.testimonial__link {
+  background: #000000 !important;
+  color: #ffffff !important;
+  border: none !important;
+  display: inline-flex !important;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px !important;
+  border-radius: 8px !important;
+  text-decoration: none !important;
+  font-weight: 500;
+  font-size: 16px;
+  transition: background-color 0.2s ease;
+}
+
+a.testimonial__link:hover {
+  background: #1e233d !important;
+}
+
+a.testimonial__link span, 
+a.testimonial__link svg path {
+  color: #ffffff !important;
+  fill: #ffffff !important;
+}
+
+/* Фотографія справа */
+.testimonial-img {
+  width: 553px;              /* Акуратний фіксований розмір фото з макета */
+  height: 523px;
+  object-fit: cover;
+  border-radius: 12px;
+  flex-shrink: 0;            /* Забороняємо фотографії стискатися */
+}
+
+/* Блок зі стрілочками внизу (оскільки в HTML він лежить окремо) */
+.testimonial__nav {
+  max-width: 960px;
+  margin: 32px auto 0;       /* Центруємо по центру сторінки під карткою */
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  justify-content: center;   /* Ставимо стрілочки чітко по центру */
+}
+
+/* Круглі сині кнопки для стрілок, як у твоєму коді */
+.nav-btn {
+  width: 56px;
+  height: 56px;
+  border-radius: 56px;
+  border: none;
+  background: var(--color-accent-blue); /* Твій блакитний колір */
+  color: #DBF4FF;                     /* Темний колір для стрілочки */
+  font-size: 16px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.nav-btn:hover {
+  background: var(--bg-dark);
+  color: #fff;
+}
+
+/* ---------- CTA BANNER ---------- */
+.cta-banner {
+  /* Прибираємо чорний фон звідси, щоб він не розтягувався на весь екран */
+  background: transparent; 
+  /* Додаємо вертикальні відступи, щоб картка не злипалася з іншими секціями */
+  padding: 40px 32px; 
+}
+
+.cta-banner__inner {
+  background: var(--bg-dark); 
+  max-width: var(--max-width); 
+  margin: 0 auto; 
+  border-radius: 16px; 
+  padding: 56px 48px; 
+  
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+
+.cta-banner__text h2 {
+  font-family: var(--font-heading);
+  font-size: 48px;
+  font-weight: 400;
+  color: #fff;
+  margin-bottom: 8px;
+  letter-spacing: -2.4px;
+}
+
+.cta-banner__text p {
+  font-size: 17.81px;
+  color: rgba(255,255,255,0.65);
+}
+
+.cta-banner__buttons {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+/* ---------- FOOTER ---------- */
+.footer {
+  background: #FFF2E9;
+  border-top: 1px solid var(--color-border);
+  padding: 56px 32px 40px;
+}
+
+.footer__inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 48px;
+}
+
+.footer__logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-logo);
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--bg-dark);
+  margin-bottom: 14px;
+}
+
+.footer__brand p {
+  font-size: 16px;
+  color: var(--color-muted);
+  line-height: 150%;
+  max-width: 313px;
+  margin-bottom: 20px;
+}
+
+.footer__social {
+  display: flex;
+  gap: 10px;
+}
+
+.social-btn {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1.5px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  color: var(--color-text);
+  transition: background 0.2s, color 0.2s;
+}
+
+.social-btn:hover {
+  background: var(--bg-dark);
+  color: #fff;
+  border-color: var(--bg-dark);
+}
+
+.footer__col h4 {
+  font-family: var(--font-heading);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--bg-dark);
+  margin-bottom: 16px;
+  letter-spacing: 0%;
+}
+
+.footer__col ul {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer__col ul li a {
+  font-size: 16px;
+  color: var(--color-muted);
+  transition: color 0.2s;
+}
+
+.footer__col ul li a:hover {
+  color: var(--bg-dark);
+}
+
+.hero-img {
+  width: 420px;
+  height: 320px;
+  object-fit: cover;
+  border-radius: 12px;
+  max-width: 100%;
+}
+
+.testimonial-img {
+  width: 300px;
+  height: 320px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 900px) {
+  .hero__inner {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .hero__text h1 {
+    font-size: 32px;
+  }
+
+  .why__grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .platform__content {
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .platform__dashboard {
+    max-width: 100%;
+  }
+
+  .platform__features {
+    width: 100%;
+  }
+
+  .testimonial__inner {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .footer__inner {
+    grid-template-columns: 1fr 1fr;
+    gap: 36px;
+  }
+
+  .cta-banner__inner {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .cta-banner__buttons {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .navbar__nav {
+    display: none;
+  }
+
+  .navbar__inner {
+    padding: 0 20px;
+  }
+
+  .hero {
+    padding: 48px 20px 48px;
+  }
+
+  .hero__text h1 {
+    font-size: 28px;
+  }
+
+  .why__inner h2 {
+    font-size: 24px;
+  }
+
+  .platform__header h2 {
+    font-size: 24px;
+  }
+
+  .testimonial__text blockquote {
+    font-size: 17px;
+  }
+
+  .cta-banner__text h2 {
+    font-size: 22px;
+  }
+
+  .footer__inner {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .trusted__logos {
+    gap: 20px;
+  }
+}
+/* Весь текст — Inter */
+body {
+  font-family: var(--font-body);
+}
+
+/* Всі заголовки — Georgia */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+}
+
+/* Логотипи — Ramabhadra */
+.navbar__logo,
+.footer__logo {
+  font-family: var(--font-logo);
+}
